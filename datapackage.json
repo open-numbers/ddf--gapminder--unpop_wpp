@@ -1,0 +1,14 @@
+{
+    "name": "ddf--gapminder--unpop_wpp",
+    "author": "Gapminder",
+    "description": "UNPOP WPP dataset in DDF format",
+    "language": {
+        "name": "English",
+        "id": "en"
+    },
+    "translations": [],
+    "license": "CC-BY-4.0",
+    "title": "UNPOP WPP dataset in DDF format",
+    "version": "0.0.1",
+    "resources": []
+}
