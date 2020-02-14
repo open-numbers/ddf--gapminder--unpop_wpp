@@ -1,14 +1,3025 @@
 {
     "name": "ddf--gapminder--unpop_wpp",
-    "author": "Gapminder",
-    "description": "UNPOP WPP dataset in DDF format",
     "language": {
-        "name": "English",
         "id": "en"
     },
+    "title": "ddf--gapminder--unpop_wpp",
+    "description": "",
+    "author": "",
+    "license": "",
+    "base": [
+        "harpalshergill/ddf--unpop--wpp_population"
+    ],
+    "id": "unpop_sg_dataset",
     "translations": [],
-    "license": "CC-BY-4.0",
-    "title": "UNPOP WPP dataset in DDF format",
-    "version": "0.0.1",
-    "resources": []
+    "created": "2020-02-14T12:52:38.697048+00:00",
+    "resources": [
+        {
+            "name": "ddf--concepts",
+            "path": "ddf--concepts.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "concept"
+                    },
+                    {
+                        "name": "color"
+                    },
+                    {
+                        "name": "concept_type"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description_long"
+                    },
+                    {
+                        "name": "domain"
+                    },
+                    {
+                        "name": "drill_up"
+                    },
+                    {
+                        "name": "indicator_url"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "name_catalog"
+                    },
+                    {
+                        "name": "name_short"
+                    },
+                    {
+                        "name": "scales"
+                    },
+                    {
+                        "name": "source"
+                    },
+                    {
+                        "name": "source_long"
+                    },
+                    {
+                        "name": "source_url"
+                    },
+                    {
+                        "name": "tags"
+                    },
+                    {
+                        "name": "unit"
+                    }
+                ],
+                "primaryKey": "concept"
+            }
+        },
+        {
+            "name": "ddf--datapoints--crude_death_rate_deaths_per_1000_population--by--geo--time",
+            "path": "ddf--datapoints--crude_death_rate_deaths_per_1000_population--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "crude_death_rate_deaths_per_1000_population"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--female_population_with_projections--by--geo--time",
+            "path": "ddf--datapoints--female_population_with_projections--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "female_population_with_projections"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--life_expectancy_female--by--geo--time",
+            "path": "ddf--datapoints--life_expectancy_female--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "life_expectancy_female"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--life_expectancy_male--by--geo--time",
+            "path": "ddf--datapoints--life_expectancy_male--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "life_expectancy_male"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--male_population_with_projections--by--geo--time",
+            "path": "ddf--datapoints--male_population_with_projections--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "male_population_with_projections"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--median_age_years--by--geo--time",
+            "path": "ddf--datapoints--median_age_years--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "median_age_years"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_0_4_years_both_sexes_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_0_4_years_both_sexes_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_0_4_years_both_sexes_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_0_4_years_female_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_0_4_years_female_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_0_4_years_female_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_0_4_years_male_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_0_4_years_male_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_0_4_years_male_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_0_4_years_total_number--by--geo--time",
+            "path": "ddf--datapoints--population_aged_0_4_years_total_number--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_0_4_years_total_number"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_10_14_years_both_sexes_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_10_14_years_both_sexes_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_10_14_years_both_sexes_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_10_14_years_female_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_10_14_years_female_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_10_14_years_female_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_10_14_years_male_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_10_14_years_male_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_10_14_years_male_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_10_14_years_total_number--by--geo--time",
+            "path": "ddf--datapoints--population_aged_10_14_years_total_number--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_10_14_years_total_number"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_15_19_years_both_sexes_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_15_19_years_both_sexes_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_15_19_years_both_sexes_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_15_19_years_female_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_15_19_years_female_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_15_19_years_female_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_15_19_years_male_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_15_19_years_male_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_15_19_years_male_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_15_19_years_total_number--by--geo--time",
+            "path": "ddf--datapoints--population_aged_15_19_years_total_number--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_15_19_years_total_number"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_20_39_years_both_sexes_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_20_39_years_both_sexes_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_20_39_years_both_sexes_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_20_39_years_female_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_20_39_years_female_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_20_39_years_female_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_20_39_years_male_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_20_39_years_male_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_20_39_years_male_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_20_39_years_total_number--by--geo--time",
+            "path": "ddf--datapoints--population_aged_20_39_years_total_number--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_20_39_years_total_number"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_40_59_years_both_sexes_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_40_59_years_both_sexes_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_40_59_years_both_sexes_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_40_59_years_female_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_40_59_years_female_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_40_59_years_female_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_40_59_years_male_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_40_59_years_male_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_40_59_years_male_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_40_59_years_total_number--by--geo--time",
+            "path": "ddf--datapoints--population_aged_40_59_years_total_number--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_40_59_years_total_number"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_5_9_years_both_sexes_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_5_9_years_both_sexes_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_5_9_years_both_sexes_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_5_9_years_female_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_5_9_years_female_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_5_9_years_female_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_5_9_years_male_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_5_9_years_male_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_5_9_years_male_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_5_9_years_total_number--by--geo--time",
+            "path": "ddf--datapoints--population_aged_5_9_years_total_number--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_5_9_years_total_number"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_60plus_years_both_sexes_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_60plus_years_both_sexes_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_60plus_years_both_sexes_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_60plus_years_female_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_60plus_years_female_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_60plus_years_female_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_60plus_years_male_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_60plus_years_male_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_60plus_years_male_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_60plus_years_total_number--by--geo--time",
+            "path": "ddf--datapoints--population_aged_60plus_years_total_number--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_60plus_years_total_number"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_density_per_square_km--by--geo--time",
+            "path": "ddf--datapoints--population_density_per_square_km--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_density_per_square_km"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_growth_annual_percent_with_projections--by--geo--time",
+            "path": "ddf--datapoints--population_growth_annual_percent_with_projections--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_growth_annual_percent_with_projections"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--sex_ratio_0_14_years--by--geo--time",
+            "path": "ddf--datapoints--sex_ratio_0_14_years--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "sex_ratio_0_14_years"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--sex_ratio_15_24_years--by--geo--time",
+            "path": "ddf--datapoints--sex_ratio_15_24_years--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "sex_ratio_15_24_years"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--sex_ratio_15_49_years--by--geo--time",
+            "path": "ddf--datapoints--sex_ratio_15_49_years--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "sex_ratio_15_49_years"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--sex_ratio_above_50_years--by--geo--time",
+            "path": "ddf--datapoints--sex_ratio_above_50_years--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "sex_ratio_above_50_years"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--sex_ratio_all_age_groups--by--geo--time",
+            "path": "ddf--datapoints--sex_ratio_all_age_groups--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "sex_ratio_all_age_groups"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--entities--geo--country",
+            "path": "ddf--entities--geo--country.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "country"
+                    },
+                    {
+                        "name": "g77_and_oecd_countries"
+                    },
+                    {
+                        "name": "income_groups"
+                    },
+                    {
+                        "name": "is--country"
+                    },
+                    {
+                        "name": "iso3166_1_alpha2"
+                    },
+                    {
+                        "name": "iso3166_1_alpha3"
+                    },
+                    {
+                        "name": "iso3166_1_numeric"
+                    },
+                    {
+                        "name": "iso3166_2"
+                    },
+                    {
+                        "name": "landlocked"
+                    },
+                    {
+                        "name": "latitude"
+                    },
+                    {
+                        "name": "longitude"
+                    },
+                    {
+                        "name": "main_religion_2008"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "un_state"
+                    },
+                    {
+                        "name": "unicef_region"
+                    },
+                    {
+                        "name": "unicode_region_subtag"
+                    },
+                    {
+                        "name": "world_4region"
+                    },
+                    {
+                        "name": "world_6region"
+                    }
+                ],
+                "primaryKey": "country"
+            }
+        },
+        {
+            "name": "ddf--entities--geo--g77_and_oecd_countries",
+            "path": "ddf--entities--geo--g77_and_oecd_countries.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "g77_and_oecd_countries"
+                    },
+                    {
+                        "name": "is--g77_and_oecd_countries"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "rank"
+                    }
+                ],
+                "primaryKey": "g77_and_oecd_countries"
+            }
+        },
+        {
+            "name": "ddf--entities--geo--global",
+            "path": "ddf--entities--geo--global.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "global"
+                    },
+                    {
+                        "name": "is--global"
+                    },
+                    {
+                        "name": "latitude"
+                    },
+                    {
+                        "name": "longitude"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "topojson"
+                    },
+                    {
+                        "name": "unicode_region_subtag"
+                    }
+                ],
+                "primaryKey": "global"
+            }
+        },
+        {
+            "name": "ddf--entities--geo--income_groups",
+            "path": "ddf--entities--geo--income_groups.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "income_groups"
+                    },
+                    {
+                        "name": "is--income_groups"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "rank"
+                    }
+                ],
+                "primaryKey": "income_groups"
+            }
+        },
+        {
+            "name": "ddf--entities--geo--landlocked",
+            "path": "ddf--entities--geo--landlocked.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "landlocked"
+                    },
+                    {
+                        "name": "is--landlocked"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "rank"
+                    }
+                ],
+                "primaryKey": "landlocked"
+            }
+        },
+        {
+            "name": "ddf--entities--geo--main_religion_2008",
+            "path": "ddf--entities--geo--main_religion_2008.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "main_religion_2008"
+                    },
+                    {
+                        "name": "is--main_religion_2008"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "rank"
+                    }
+                ],
+                "primaryKey": "main_religion_2008"
+            }
+        },
+        {
+            "name": "ddf--entities--geo--unicef_region",
+            "path": "ddf--entities--geo--unicef_region.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "unicef_region"
+                    },
+                    {
+                        "name": "is--unicef_region"
+                    },
+                    {
+                        "name": "name"
+                    }
+                ],
+                "primaryKey": "unicef_region"
+            }
+        },
+        {
+            "name": "ddf--entities--geo--world_4region",
+            "path": "ddf--entities--geo--world_4region.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "world_4region"
+                    },
+                    {
+                        "name": "color"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "is--world_4region"
+                    },
+                    {
+                        "name": "latitude"
+                    },
+                    {
+                        "name": "longitude"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "name_long"
+                    },
+                    {
+                        "name": "name_short"
+                    },
+                    {
+                        "name": "rank"
+                    },
+                    {
+                        "name": "shape_lores_svg"
+                    }
+                ],
+                "primaryKey": "world_4region"
+            }
+        },
+        {
+            "name": "ddf--entities--geo--world_6region",
+            "path": "ddf--entities--geo--world_6region.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "world_6region"
+                    },
+                    {
+                        "name": "is--world_6region"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "name_long"
+                    },
+                    {
+                        "name": "name_short"
+                    },
+                    {
+                        "name": "rank"
+                    },
+                    {
+                        "name": "shape_lores_svg"
+                    }
+                ],
+                "primaryKey": "world_6region"
+            }
+        },
+        {
+            "name": "ddf--entities--geo",
+            "path": "ddf--entities--geo.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "iso3166_1_alpha2"
+                    },
+                    {
+                        "name": "iso3166_1_alpha3"
+                    },
+                    {
+                        "name": "iso3166_1_numeric"
+                    },
+                    {
+                        "name": "landlocked"
+                    },
+                    {
+                        "name": "latitude"
+                    },
+                    {
+                        "name": "longitude"
+                    },
+                    {
+                        "name": "main_religion_2008"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "un_state"
+                    },
+                    {
+                        "name": "unicode_region_subtag"
+                    },
+                    {
+                        "name": "world_4region"
+                    },
+                    {
+                        "name": "world_6region"
+                    }
+                ],
+                "primaryKey": "geo"
+            }
+        }
+    ],
+    "ddfSchema": {
+        "concepts": [
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "color",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "concept_type",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "description",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "description_long",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "domain",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "drill_up",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "indicator_url",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "name_catalog",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "name_short",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "scales",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "source",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "source_long",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "source_url",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "tags",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "concept"
+                ],
+                "value": "unit",
+                "resources": [
+                    "ddf--concepts"
+                ]
+            }
+        ],
+        "entities": [
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "color",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "color",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "description",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "description",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "g77_and_oecd_countries",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "g77_and_oecd_countries",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "income_groups",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "income_groups",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "is--country",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--country",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "g77_and_oecd_countries"
+                ],
+                "value": "is--g77_and_oecd_countries",
+                "resources": [
+                    "ddf--entities--geo--g77_and_oecd_countries"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--g77_and_oecd_countries",
+                "resources": [
+                    "ddf--entities--geo--g77_and_oecd_countries"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--global",
+                "resources": [
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "global"
+                ],
+                "value": "is--global",
+                "resources": [
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--income_groups",
+                "resources": [
+                    "ddf--entities--geo--income_groups"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "income_groups"
+                ],
+                "value": "is--income_groups",
+                "resources": [
+                    "ddf--entities--geo--income_groups"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--landlocked",
+                "resources": [
+                    "ddf--entities--geo--landlocked"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "landlocked"
+                ],
+                "value": "is--landlocked",
+                "resources": [
+                    "ddf--entities--geo--landlocked"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--main_religion_2008",
+                "resources": [
+                    "ddf--entities--geo--main_religion_2008"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "main_religion_2008"
+                ],
+                "value": "is--main_religion_2008",
+                "resources": [
+                    "ddf--entities--geo--main_religion_2008"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--unicef_region",
+                "resources": [
+                    "ddf--entities--geo--unicef_region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "unicef_region"
+                ],
+                "value": "is--unicef_region",
+                "resources": [
+                    "ddf--entities--geo--unicef_region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--world_4region",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "is--world_4region",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "is--world_6region",
+                "resources": [
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_6region"
+                ],
+                "value": "is--world_6region",
+                "resources": [
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "iso3166_1_alpha2",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "iso3166_1_alpha2",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "iso3166_1_alpha3",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "iso3166_1_alpha3",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "iso3166_1_numeric",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "iso3166_1_numeric",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "iso3166_2",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "iso3166_2",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "landlocked",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "landlocked",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "latitude",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "latitude",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country",
+                    "ddf--entities--geo--global",
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "global"
+                ],
+                "value": "latitude",
+                "resources": [
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "latitude",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "longitude",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "longitude",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country",
+                    "ddf--entities--geo--global",
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "global"
+                ],
+                "value": "longitude",
+                "resources": [
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "longitude",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "main_religion_2008",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "main_religion_2008",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "g77_and_oecd_countries"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--g77_and_oecd_countries"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country",
+                    "ddf--entities--geo--g77_and_oecd_countries",
+                    "ddf--entities--geo--global",
+                    "ddf--entities--geo--income_groups",
+                    "ddf--entities--geo--landlocked",
+                    "ddf--entities--geo--main_religion_2008",
+                    "ddf--entities--geo--unicef_region",
+                    "ddf--entities--geo--world_4region",
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "global"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "income_groups"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--income_groups"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "landlocked"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--landlocked"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "main_religion_2008"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--main_religion_2008"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "unicef_region"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--unicef_region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_6region"
+                ],
+                "value": "name",
+                "resources": [
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "name_long",
+                "resources": [
+                    "ddf--entities--geo--world_4region",
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "name_long",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_6region"
+                ],
+                "value": "name_long",
+                "resources": [
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "name_short",
+                "resources": [
+                    "ddf--entities--geo--world_4region",
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "name_short",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_6region"
+                ],
+                "value": "name_short",
+                "resources": [
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "g77_and_oecd_countries"
+                ],
+                "value": "rank",
+                "resources": [
+                    "ddf--entities--geo--g77_and_oecd_countries"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "rank",
+                "resources": [
+                    "ddf--entities--geo--g77_and_oecd_countries",
+                    "ddf--entities--geo--income_groups",
+                    "ddf--entities--geo--landlocked",
+                    "ddf--entities--geo--main_religion_2008",
+                    "ddf--entities--geo--world_4region",
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "income_groups"
+                ],
+                "value": "rank",
+                "resources": [
+                    "ddf--entities--geo--income_groups"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "landlocked"
+                ],
+                "value": "rank",
+                "resources": [
+                    "ddf--entities--geo--landlocked"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "main_religion_2008"
+                ],
+                "value": "rank",
+                "resources": [
+                    "ddf--entities--geo--main_religion_2008"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "rank",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_6region"
+                ],
+                "value": "rank",
+                "resources": [
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "shape_lores_svg",
+                "resources": [
+                    "ddf--entities--geo--world_4region",
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_4region"
+                ],
+                "value": "shape_lores_svg",
+                "resources": [
+                    "ddf--entities--geo--world_4region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "world_6region"
+                ],
+                "value": "shape_lores_svg",
+                "resources": [
+                    "ddf--entities--geo--world_6region"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "topojson",
+                "resources": [
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "global"
+                ],
+                "value": "topojson",
+                "resources": [
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "un_state",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "un_state",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "unicef_region",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "unicef_region",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "unicode_region_subtag",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "unicode_region_subtag",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country",
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "global"
+                ],
+                "value": "unicode_region_subtag",
+                "resources": [
+                    "ddf--entities--geo--global"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "world_4region",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "world_4region",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country"
+                ],
+                "value": "world_6region",
+                "resources": [
+                    "ddf--entities--geo--country"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo"
+                ],
+                "value": "world_6region",
+                "resources": [
+                    "ddf--entities--geo",
+                    "ddf--entities--geo--country"
+                ]
+            }
+        ],
+        "datapoints": [
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "crude_death_rate_deaths_per_1000_population",
+                "resources": [
+                    "ddf--datapoints--crude_death_rate_deaths_per_1000_population--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "crude_death_rate_deaths_per_1000_population",
+                "resources": [
+                    "ddf--datapoints--crude_death_rate_deaths_per_1000_population--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "female_population_with_projections",
+                "resources": [
+                    "ddf--datapoints--female_population_with_projections--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "female_population_with_projections",
+                "resources": [
+                    "ddf--datapoints--female_population_with_projections--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "life_expectancy_female",
+                "resources": [
+                    "ddf--datapoints--life_expectancy_female--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "life_expectancy_female",
+                "resources": [
+                    "ddf--datapoints--life_expectancy_female--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "life_expectancy_male",
+                "resources": [
+                    "ddf--datapoints--life_expectancy_male--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "life_expectancy_male",
+                "resources": [
+                    "ddf--datapoints--life_expectancy_male--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "male_population_with_projections",
+                "resources": [
+                    "ddf--datapoints--male_population_with_projections--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "male_population_with_projections",
+                "resources": [
+                    "ddf--datapoints--male_population_with_projections--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "median_age_years",
+                "resources": [
+                    "ddf--datapoints--median_age_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "median_age_years",
+                "resources": [
+                    "ddf--datapoints--median_age_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_0_4_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_0_4_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_0_4_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_0_4_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_0_4_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_0_4_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_0_4_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_0_4_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_0_4_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_0_4_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_0_4_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_0_4_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_0_4_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_0_4_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_0_4_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_0_4_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_10_14_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_10_14_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_10_14_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_10_14_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_10_14_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_10_14_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_10_14_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_10_14_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_10_14_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_10_14_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_10_14_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_10_14_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_10_14_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_10_14_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_10_14_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_10_14_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_15_19_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_15_19_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_15_19_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_15_19_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_15_19_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_15_19_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_15_19_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_15_19_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_15_19_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_15_19_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_15_19_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_15_19_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_15_19_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_15_19_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_15_19_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_15_19_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_20_39_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_20_39_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_20_39_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_20_39_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_20_39_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_20_39_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_20_39_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_20_39_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_20_39_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_20_39_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_20_39_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_20_39_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_20_39_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_20_39_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_20_39_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_20_39_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_40_59_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_40_59_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_40_59_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_40_59_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_40_59_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_40_59_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_40_59_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_40_59_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_40_59_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_40_59_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_40_59_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_40_59_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_40_59_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_40_59_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_40_59_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_40_59_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_5_9_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_5_9_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_5_9_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_5_9_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_5_9_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_5_9_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_5_9_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_5_9_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_5_9_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_5_9_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_5_9_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_5_9_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_5_9_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_5_9_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_5_9_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_5_9_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_60plus_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_60plus_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_60plus_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_60plus_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_60plus_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_60plus_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_60plus_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_60plus_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_60plus_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_60plus_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_60plus_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_60plus_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_60plus_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_60plus_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_60plus_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_60plus_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_density_per_square_km",
+                "resources": [
+                    "ddf--datapoints--population_density_per_square_km--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_density_per_square_km",
+                "resources": [
+                    "ddf--datapoints--population_density_per_square_km--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_growth_annual_percent_with_projections",
+                "resources": [
+                    "ddf--datapoints--population_growth_annual_percent_with_projections--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_growth_annual_percent_with_projections",
+                "resources": [
+                    "ddf--datapoints--population_growth_annual_percent_with_projections--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "sex_ratio_0_14_years",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_0_14_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "sex_ratio_0_14_years",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_0_14_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "sex_ratio_15_24_years",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_15_24_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "sex_ratio_15_24_years",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_15_24_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "sex_ratio_15_49_years",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_15_49_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "sex_ratio_15_49_years",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_15_49_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "sex_ratio_above_50_years",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_above_50_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "sex_ratio_above_50_years",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_above_50_years--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "sex_ratio_all_age_groups",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_all_age_groups--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "sex_ratio_all_age_groups",
+                "resources": [
+                    "ddf--datapoints--sex_ratio_all_age_groups--by--geo--time"
+                ]
+            }
+        ],
+        "synonyms": []
+    }
 }
