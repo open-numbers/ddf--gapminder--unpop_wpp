@@ -1,25 +1,5 @@
-# UNPOP WPP dataset in DDF format
+# ddf--gapminder--unpop_wpp
 
-UNPOP WPP dataset in DDF format
+Subset of UNPOP WPP dataset in DDF format
 
-## Indicators
-
-- List of indicators in this repo
-
-## Definition of indicator
-
-
-## Unit of measurement
-
-
-## Versions
-
-
-### Revision history
-
-
-## Data sources summary
-
-
-## Specific information about this indicator
-
+These indicators are part of [Systema Globalis](https://github.com/open-numbers/ddf--gapminder--systema_globalis).
