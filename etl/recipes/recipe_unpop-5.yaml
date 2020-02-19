@@ -22,8 +22,8 @@ ingredients:
       key: country, variant, year
       value:
           - medianageofpopulation
-          - dependencyratio1564
           - populationdensitypersqkm
+          - dependencyratio1564
 
 cooking:
     datapoints:

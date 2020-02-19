@@ -1,4 +1,5 @@
 concept,color,concept_type,description,description_long,domain,drill_up,indicator_url,name,name_catalog,name_short,scales,source,source_long,source_url,tags,unit
+children_and_elderly_per_100_adults,,measure,,,,,,Children And Elderly Per 100 Adults,,,,,,,,
 color,,string,,,,,,Color,,,,,,,_none,
 country,,entity_set,,,geo,"[""world_6region"", ""income_groups"", ""landlocked"", ""g77_and_oecd_countries"", ""main_religion_2008"", ""world_4region"", ""unicef_region""]",https://github.com/open-numbers/ddf--gapminder--dim_geo_countries_and_groups/blob/master/ddf--list--geo--country.csv,Country,,,,,,,categorizations,
 crude_death_rate_deaths_per_1000_population,,measure,,,,,,Crude Death Rate Deaths Per 1000 Population,,,,,,,,

@@ -12,7 +12,7 @@
     ],
     "id": "unpop_sg_dataset",
     "translations": [],
-    "created": "2020-02-14T12:52:38.697048+00:00",
+    "created": "2020-02-19T02:34:45.574892+00:00",
     "resources": [
         {
             "name": "ddf--concepts",
@@ -72,6 +72,27 @@
                     }
                 ],
                 "primaryKey": "concept"
+            }
+        },
+        {
+            "name": "ddf--datapoints--children_and_elderly_per_100_adults--by--geo--time",
+            "path": "ddf--datapoints--children_and_elderly_per_100_adults--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "children_and_elderly_per_100_adults"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
             }
         },
         {
@@ -2199,6 +2220,26 @@
             }
         ],
         "datapoints": [
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "children_and_elderly_per_100_adults",
+                "resources": [
+                    "ddf--datapoints--children_and_elderly_per_100_adults--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "children_and_elderly_per_100_adults",
+                "resources": [
+                    "ddf--datapoints--children_and_elderly_per_100_adults--by--geo--time"
+                ]
+            },
             {
                 "primaryKey": [
                     "country",
