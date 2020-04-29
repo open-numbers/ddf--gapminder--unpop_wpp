@@ -8,11 +8,11 @@
     "author": "",
     "license": "",
     "base": [
-        "harpalshergill/ddf--unpop--wpp_population"
+        "open-numbers/ddf--unpop--world_population_prospects"
     ],
     "id": "unpop_sg_dataset",
     "translations": [],
-    "created": "2020-04-27T00:41:04.232491+00:00",
+    "created": "2020-04-29T06:21:57.715562+00:00",
     "resources": [
         {
             "name": "ddf--concepts",

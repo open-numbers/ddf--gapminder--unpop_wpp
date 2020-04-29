@@ -1,13 +1,12 @@
 info:
     id: unpop_sg_dataset
     base:
-        - &d1 harpalshergill/ddf--unpop--wpp_population
+        - &d1 open-numbers/ddf--unpop--world_population_prospects
 
 
 config:
     recipes_dir: ./
     dictionary_dir: ../translation_dictionaries
-    ddf_dir: /Users/semio/src/work/Gapminder
 
 include:
     - recipe_gw_common.yaml
@@ -20,86 +19,30 @@ ingredients:
 
     - id: unpop-datapoints-3-1
       dataset: *d1
-      key: country, gender, variant, year
+      key: country, gender, time
       value:
           - population
 
     - id: unpop-datapoints-3-2
       dataset: *d1
-      key: country, age5yearinterval, variant, year
+      key: country, age5yearinterval, time
       value:
           - population
 
     - id: unpop-datapoints-3-3
       dataset: *d1
-      key: country, variant, year
+      key: country, time
       value:
           - population
 
     - id: unpop-datapoints-3-4
       dataset: *d1
-      key: country, age5yearinterval, gender, variant, year
+      key: country, age5yearinterval, gender, time
       value:
           - population
 
 cooking:
     datapoints:
-        # male/female population
-
-        - procedure: run_op
-          ingredients:
-              - unpop-datapoints-3-1
-          options:
-              op:
-                  population: population * 1000
-          result: unpop-datapoints-3-1-1
-
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-3-1-1
-          options:
-              row:
-                  population:
-                      variant: estimates
-          result: unpop-datapoints-3-1-before2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-3-1-before2015-0
-          options:
-              groupby:
-                  - country
-                  - gender
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-3-1-before2015
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-3-1-1
-          options:
-              row:
-                  variant:
-                      - medium_variant
-          result: unpop-datapoints-3-1-after2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-3-1-after2015-0
-          options:
-              groupby:
-                  - country
-                  - gender
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-3-1-after2015
-
-        - procedure: merge
-          ingredients:
-              - unpop-datapoints-3-1-after2015
-              - unpop-datapoints-3-1-before2015
-          options:
-              deep: true
-          result: unpop-datapoints-3-1-country-year
 
         - procedure: translate_column
           ingredients:
@@ -113,9 +56,18 @@ cooking:
                   value: geo
           result: unpop-countries-aligned
 
+        # male/female population
+        - procedure: run_op
+          ingredients:
+              - unpop-datapoints-3-1
+          options:
+              op:
+                  population: population * 1000
+          result: unpop-datapoints-3-1-1
+
         - procedure: translate_column
           ingredients:
-              - unpop-datapoints-3-1-country-year
+              - unpop-datapoints-3-1-1
           options:
               column: country
               dictionary:
@@ -124,9 +76,19 @@ cooking:
                   value: geo
           result: unpop-datapoints-3-1-country-year-aligned
 
+        - procedure: translate_column
+          ingredients:
+            - unpop-datapoints-3-1-country-year-aligned
+          options:
+            column: gender
+            dictionary:
+              "1": male
+              "2": female
+          result: unpop-datapoints-3-1-country-year-aligned-gender-translated
+
         - procedure: flatten
           ingredients:
-              - unpop-datapoints-3-1-country-year-aligned
+              - unpop-datapoints-3-1-country-year-aligned-gender-translated
           options:
               flatten_dimensions:
                   - gender
@@ -145,64 +107,10 @@ cooking:
                   population: population * 1000
           result: unpop-datapoints-3-2-1
 
-        # only estimates, no projection
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-3-2-1
-          options:
-              row:
-                  variant:
-                      - estimates
-          result: unpop-datapoints-3-2-before2015-0
-        # remove variant column  
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-3-2-before2015-0
-          options:
-              groupby:
-                  - country
-                  - age5yearinterval
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-3-2-before2015
-
-        # pick medium variant projection  
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-3-2-1
-          options:
-              row:
-                  variant:
-                      - medium_variant
-          result: unpop-datapoints-3-2-after2015-0
-        # remove variant column
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-3-2-after2015-0
-          options:
-              groupby:
-                  - country
-                  - age5yearinterval
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-3-2-after2015
-
-        # merge estimates and medium for one long time-series
-        # estimates and medium may overlap, this overwrites medium with estimates, agnostic of what year it is in
-        # alternative would be to find duplicates without variant and then choose the medium one, that procedure doesn't exist
-        - procedure: merge
-          ingredients:
-              - unpop-datapoints-3-2-after2015
-              - unpop-datapoints-3-2-before2015
-          options:
-              deep: true
-          result: unpop-datapoints-3-2-country-year
 
         - procedure: translate_column
           ingredients:
-              - unpop-datapoints-3-2-country-year
+              - unpop-datapoints-3-2-1
           options:
               column: country
               dictionary:
@@ -346,7 +254,7 @@ cooking:
           options:
               groupby:
                   - country
-                  - year
+                  - time
               aggregate:
                   population_aged_0_14_years_total_number: sum
                   population_aged_20_39_years_total_number: sum
@@ -371,54 +279,9 @@ cooking:
                   population: population * 1000
           result: unpop-datapoints-3-3-1
 
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-3-3-1
-          options:
-              row:
-                  variant:
-                      - estimates
-          result: unpop-datapoints-3-3-before2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-3-3-before2015-0
-          options:
-              groupby:
-                  - country
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-3-3-before2015
-
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-3-3-1
-          options:
-              row:
-                  variant:
-                      - medium_variant
-          result: unpop-datapoints-3-3-after2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-3-3-after2015-0
-          options:
-              groupby:
-                  - country
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-3-3-after2015
-
-        - procedure: merge
-          ingredients:
-              - unpop-datapoints-3-3-after2015
-              - unpop-datapoints-3-3-before2015
-          options:
-              deep: true
-          result: unpop-datapoints-3-3-country-year
         - procedure: translate_column
           ingredients:
-              - unpop-datapoints-3-3-country-year
+              - unpop-datapoints-3-3-1
           options:
               column: country
               dictionary:
@@ -442,56 +305,10 @@ cooking:
               op:
                   population: population * 1000
           result: unpop-datapoints-3-4-1
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-3-4-1
-          options:
-              row:
-                  variant:
-                      - estimates
-          result: unpop-datapoints-3-4-before2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-3-4-before2015-0
-          options:
-              groupby:
-                  - country
-                  - age5yearinterval
-                  - gender
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-3-4-before2015
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-3-4-1
-          options:
-              row:
-                  variant:
-                      - medium_variant
-          result: unpop-datapoints-3-4-after2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-3-4-after2015-0
-          options:
-              groupby:
-                  - country
-                  - age5yearinterval
-                  - gender
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-3-4-after2015
-        - procedure: merge
-          ingredients:
-              - unpop-datapoints-3-4-after2015
-              - unpop-datapoints-3-4-before2015
-          options:
-              deep: true
-          result: unpop-datapoints-3-4-country-year
+
         - procedure: translate_column
           ingredients:
-              - unpop-datapoints-3-4-country-year
+              - unpop-datapoints-3-4-1
           options:
               column: country
               dictionary:
@@ -500,9 +317,20 @@ cooking:
                   value: geo
           result: unpop-datapoints-3-4-country-year-aligned
 
+        - procedure: translate_column
+          ingredients:
+            - unpop-datapoints-3-4-country-year-aligned
+          options:
+            column: gender
+            dictionary:
+              "1": male
+              "2": female
+          result: unpop-datapoints-3-4-country-year-aligned-gender-translated
+
+
         - procedure: flatten
           ingredients:
-              - unpop-datapoints-3-4-country-year-aligned
+              - unpop-datapoints-3-4-country-year-aligned-gender-translated
           options:
               flatten_dimensions:
                   - gender
@@ -511,7 +339,7 @@ cooking:
                   population: "pop_{age5yearinterval}_{gender}"
           result: unpop-datapoints-3-4-g1
 
-        # 0 - 14 male  
+        # 0 - 14 male
         - procedure: filter
           ingredients:
               - unpop-datapoints-3-4-country-year-aligned
@@ -520,7 +348,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - male
+                          - "1"
                       age5yearinterval: ["0_4", "5_9", "10_14"]
 
         - procedure: translate_header
@@ -532,7 +360,7 @@ cooking:
           result: unpop-datapoints-3-4-g2-0_14-male-translated
 
 
-        # 20 - 39 male  
+        # 20 - 39 male
         - procedure: filter
           ingredients:
               - unpop-datapoints-3-4-country-year-aligned
@@ -541,7 +369,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - male
+                          - "1"
                       age5yearinterval: ["20_24", "25_29", "30_34", "35_39"]
 
         - procedure: translate_header
@@ -552,7 +380,7 @@ cooking:
                   population: pop_20_39_male
           result: unpop-datapoints-3-4-g2-1-translated
 
-        # 40 - 59 male  
+        # 40 - 59 male
         - procedure: filter
           ingredients:
               - unpop-datapoints-3-4-country-year-aligned
@@ -561,7 +389,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - male
+                          - "1"
                       age5yearinterval: ["40_44", "45_49", "50_54", "55_59"]
 
         - procedure: translate_header
@@ -572,7 +400,7 @@ cooking:
                   population: pop_40_59_male
           result: unpop-datapoints-3-4-g2-2-translated
 
-        # 60 plus male  
+        # 60 plus male
         - procedure: filter
           ingredients:
               - unpop-datapoints-3-4-country-year-aligned
@@ -581,7 +409,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - male
+                          - "1"
                       age5yearinterval: ['60_64', '65_69', '70_74', '75_79',
                                          '80plus', '80_84', '85_89', '90_94',
                                          '95_99', '100plus']
@@ -594,7 +422,7 @@ cooking:
                   population: pop_60plus_male
           result: unpop-datapoints-3-4-g2-3-translated
 
-        # 65 plus male  
+        # 65 plus male
         - procedure: filter
           ingredients:
               - unpop-datapoints-3-4-country-year-aligned
@@ -603,7 +431,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - male
+                          - "1"
                       age5yearinterval: ['65_69', '70_74', '75_79',
                                          '80plus', '80_84', '85_89', '90_94',
                                          '95_99', '100plus']
@@ -625,7 +453,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - male
+                          - "1"
                       age5yearinterval: ['70_74', '75_79',
                                          '80plus', '80_84', '85_89', '90_94',
                                          '95_99', '100plus']
@@ -638,7 +466,7 @@ cooking:
                   population: pop_70plus_male
           result: unpop-datapoints-3-4-g2-70plus-male-translated
 
-        # 0 - 14 female  
+        # 0 - 14 female
         - procedure: filter
           ingredients:
               - unpop-datapoints-3-4-country-year-aligned
@@ -647,7 +475,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - female
+                          - "2"
                       age5yearinterval: ["0_4", "5_9", "10_14"]
 
         - procedure: translate_header
@@ -658,7 +486,7 @@ cooking:
                   population: pop_0_14_female
           result: unpop-datapoints-3-4-g2-0_14-female-translated
 
-        # 20 - 39 female  
+        # 20 - 39 female
         - procedure: filter
           ingredients:
               - unpop-datapoints-3-4-country-year-aligned
@@ -667,7 +495,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - female
+                          - "2"
                       age5yearinterval: ["20_24", "25_29", "30_34", "35_39"]
 
         - procedure: translate_header
@@ -678,7 +506,7 @@ cooking:
                   population: pop_20_39_female
           result: unpop-datapoints-3-4-g2-4-translated
 
-        # 40 - 59 female  
+        # 40 - 59 female
         - procedure: filter
           ingredients:
               - unpop-datapoints-3-4-country-year-aligned
@@ -687,7 +515,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - female
+                          - "2"
                       age5yearinterval: ["40_44", "45_49", "50_54", "55_59"]
 
         - procedure: translate_header
@@ -707,7 +535,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - female
+                          - "2"
                       age5yearinterval: ['60_64', '65_69', '70_74', '75_79',
                                          '80plus', '80_84', '85_89', '90_94',
                                          '95_99', '100plus']
@@ -729,7 +557,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - female
+                          - "2"
                       age5yearinterval: ['65_69', '70_74', '75_79',
                                          '80plus', '80_84', '85_89', '90_94',
                                          '95_99', '100plus']
@@ -751,7 +579,7 @@ cooking:
               row:
                   $and:
                       gender:
-                          - female
+                          - "2"
                       age5yearinterval: ['70_74', '75_79',
                                          '80plus', '80_84', '85_89', '90_94',
                                          '95_99', '100plus']
@@ -786,7 +614,7 @@ cooking:
           options:
               groupby:
                   - country
-                  - year
+                  - time
               aggregate:
                   pop_0_14_male: sum
                   pop_20_39_male: sum
@@ -929,3 +757,5 @@ cooking:
                   - population_aged_70plus_years_female_percent
                   - population_aged_70plus_years_male_percent
                   - population_aged_70plus_years_total_number
+
+
