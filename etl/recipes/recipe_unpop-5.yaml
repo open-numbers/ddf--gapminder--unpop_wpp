@@ -1,12 +1,11 @@
 info:
     id: unpop_sg_dataset
     base:
-        - &d1 harpalshergill/ddf--unpop--wpp_population
+        - &d1 open-numbers/ddf--unpop--world_population_prospects
 
 config:
     recipes_dir: ./
     dictionary_dir: ../translation_dictionaries
-    ddf_dir: /Users/semio/src/work/Gapminder/datasets
 
 include:
     - recipe_gw_common.yaml
@@ -17,61 +16,39 @@ ingredients:
       dataset: *d1
       key: "country"
       value: "*"
-    - id: unpop-datapoints-5
+    - id: unpop-datapoints-5-freq
       dataset: *d1
-      key: country, variant, year
+      key: country, time, freq
       value:
-          - medianageofpopulation
-          - populationdensitypersqkm
-          - dependencyratio1564
+          - median_age
+
+    - id: unpop-datapoints-5-nofreq
+      dataset: *d1
+      key: country, time
+      value:
+          - population_density
+          - total_dependency_ratio_1564
+
+
 
 cooking:
     datapoints:
-        - procedure: filter
+        # flatten the freq dimension and merge 2 datapoints ingredient
+        - procedure: flatten
           ingredients:
-              - unpop-datapoints-5
+            - unpop-datapoints-5-freq
           options:
-              row:
-                  variant:
-                      - estimates
-          result: unpop-datapoints-5-before2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-5-before2015-0
-          options:
-              groupby:
-                  - country
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-5-before2015
-
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-5
-          options:
-              row:
-                  variant:
-                      - medium_variant
-          result: unpop-datapoints-5-after2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-5-after2015-0
-          options:
-              groupby:
-                  - country
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-5-after2015
+            flatten_dimensions:
+              - freq
+            dictionary:
+              median_age: median_age
+          result: unpop-datapoints-5-freq-flatten
 
         - procedure: merge
           ingredients:
-              - unpop-datapoints-5-after2015
-              - unpop-datapoints-5-before2015
-          options:
-              deep: true
-          result: unpop-datapoints-5-country-year
+            - unpop-datapoints-5-freq-flatten
+            - unpop-datapoints-5-nofreq
+          result: unpop-datapoints-5
 
         - procedure: translate_column
           ingredients:
@@ -87,21 +64,21 @@ cooking:
 
         - procedure: translate_column
           ingredients:
-              - unpop-datapoints-5-country-year
+              - unpop-datapoints-5
           options:
               column: country
               dictionary:
                   base: unpop-countries-aligned
                   key: country
                   value: geo
-          result: unpop-datapoints-5-country-year-aligned
+          result: unpop-datapoints-5-aligned
 
         - procedure: translate_header
           ingredients:
-              - unpop-datapoints-5-country-year-aligned
+              - unpop-datapoints-5-aligned
           options:
               dictionary:
-                  medianageofpopulation: median_age_years
-                  dependencyratio1564: children_and_elderly_per_100_adults
-                  populationdensitypersqkm: population_density_per_square_km
+                  median_age: median_age_years
+                  total_dependency_ratio_1564: children_and_elderly_per_100_adults
+                  population_density: population_density_per_square_km
           result: unpop-datapoints-5-final

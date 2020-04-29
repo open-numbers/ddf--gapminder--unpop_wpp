@@ -1,7 +1,7 @@
 info:
     id: unpop_sg_dataset
     base:
-        - &d1 harpalshergill/ddf--unpop--wpp_population
+        - &d1 open-numbers/ddf--unpop--world_population_prospects
 
 config:
     recipes_dir: ./
@@ -32,7 +32,6 @@ cooking:
           options:
               dictionary:
                   country: geo
-                  year: time
           result: unpop-datapoints-final
 
     concepts:

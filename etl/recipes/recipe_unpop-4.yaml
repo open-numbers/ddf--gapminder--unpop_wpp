@@ -1,12 +1,11 @@
 info:
     id: unpop_sg_dataset
     base:
-        - &d1 harpalshergill/ddf--unpop--wpp_population
+        - &d1 open-numbers/ddf--unpop--world_population_prospects
 
 config:
     recipes_dir: ./
     dictionary_dir: ../translation_dictionaries
-    ddf_dir: /Users/semio/src/work/Gapminder/datasets
 
 include:
     - recipe_gw_common.yaml
@@ -18,61 +17,21 @@ ingredients:
       key: "country"
       value: "*"
 
-    - id: unpop-datapoints-4-1
+    - id: unpop-datapoints-4
       dataset: *d1
-      key: agebroad, country, variant, year
+      key: agebroad, country, time
       value:
-          - sexratio_maleper100female
+          - sex_ratio
+
+    - id: unpop-datapoints-4-total
+      dataset: *d1
+      key: country, time, freq
+      value:
+          - sex_ratio_total
 
 cooking:
     datapoints:
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-4-1
-          options:
-              row:
-                  variant:
-                      - estimates
-          result: unpop-datapoints-4-1-before2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-4-1-before2015-0
-          options:
-              groupby:
-                  - agebroad
-                  - country
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-4-1-before2015
-        - procedure: filter
-          ingredients:
-              - unpop-datapoints-4-1
-          options:
-              row:
-                  variant:
-                      - medium_variant
-          result: unpop-datapoints-4-1-after2015-0
-        - procedure: groupby
-          ingredients:
-              - unpop-datapoints-4-1-after2015-0
-          options:
-              groupby:
-                  - agebroad
-                  - country
-                  - year
-              aggregate:
-                  "*": sum
-          result: unpop-datapoints-4-1-after2015
-
-        - procedure: merge
-          ingredients:
-              - unpop-datapoints-4-1-after2015
-              - unpop-datapoints-4-1-before2015
-          options:
-              deep: true
-          result: unpop-datapoints-4-1-country-year
-
+        # process sex ratio by age groups
         - procedure: translate_column
           ingredients:
               - unpop-countries
@@ -87,37 +46,67 @@ cooking:
 
         - procedure: translate_column
           ingredients:
-              - unpop-datapoints-4-1-country-year
+              - unpop-datapoints-4
           options:
               column: country
               dictionary:
                   base: unpop-countries-aligned
                   key: country
                   value: geo
-          result: unpop-datapoints-4-1-country-year-aligned
+          result: unpop-datapoints-4-aligned
 
         - procedure: flatten
           ingredients:
-              - unpop-datapoints-4-1-country-year-aligned
+              - unpop-datapoints-4-aligned
           options:
               flatten_dimensions:
                   - agebroad
               dictionary:
-                  sexratio_maleper100female: "sex_ratio_{agebroad}_years"
-          result: unpop-datapoints-4-1-flatten
+                  sex_ratio: "sex_ratio_{agebroad}_years"
+          result: unpop-datapoints-4-flatten
 
+        # process sex ratio for all age
+        - procedure: translate_column
+          ingredients:
+              - unpop-datapoints-4-total
+          options:
+              column: country
+              dictionary:
+                  base: unpop-countries-aligned
+                  key: country
+                  value: geo
+          result: unpop-datapoints-4-total-aligned
+
+        - procedure: flatten
+          ingredients:
+            - unpop-datapoints-4-total-aligned
+          options:
+            flatten_dimensions:
+              - freq
+            dictionary:
+              sex_ratio_total: sex_ratio_total_years
+          result: unpop-datapoints-4-total-flattened
+
+        - procedure: merge
+          ingredients:
+            - unpop-datapoints-4-total-flattened
+            - unpop-datapoints-4-flatten
+          result: unpop-datapoints-4-all
+
+        # rename geo and 2 indicator name to match names in SG
+        # TODO: move indicator name renaming to SG's recipes.
         - procedure: translate_header
           ingredients:
-              - unpop-datapoints-4-1-flatten
+              - unpop-datapoints-4-all
           options:
               dictionary:
                   sex_ratio_total_years: sex_ratio_all_age_groups
                   sex_ratio_50plus_years: sex_ratio_above_50_years
-          result: unpop-datapoints-4-1-final-0
+          result: unpop-datapoints-4-final-0
 
         - procedure: filter
           ingredients:
-              - unpop-datapoints-4-1-final-0
+              - unpop-datapoints-4-final-0
           options:
               item:
                   - sex_ratio_0_14_years
