@@ -190,7 +190,8 @@ cooking:
           result: unpop-datapoints-3-2-after2015
 
         # merge estimates and medium for one long time-series
-        # ? why not just filter on estimate and medium?
+        # estimates and medium may overlap, this overwrites medium with estimates, agnostic of what year it is in
+        # alternative would be to find duplicates without variant and then choose the medium one, that procedure doesn't exist
         - procedure: merge
           ingredients:
               - unpop-datapoints-3-2-after2015
