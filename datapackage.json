@@ -12,7 +12,7 @@
     ],
     "id": "unpop_sg_dataset",
     "translations": [],
-    "created": "2020-04-29T06:21:57.715562+00:00",
+    "created": "2020-04-30T07:14:10.502275+00:00",
     "resources": [
         {
             "name": "ddf--concepts",
@@ -717,6 +717,90 @@
                     },
                     {
                         "name": "population_aged_40_59_years_total_number"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_55plus_years_both_sexes_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_55plus_years_both_sexes_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_55plus_years_both_sexes_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_55plus_years_female_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_55plus_years_female_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_55plus_years_female_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_55plus_years_male_percent--by--geo--time",
+            "path": "ddf--datapoints--population_aged_55plus_years_male_percent--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_55plus_years_male_percent"
+                    }
+                ],
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ]
+            }
+        },
+        {
+            "name": "ddf--datapoints--population_aged_55plus_years_total_number--by--geo--time",
+            "path": "ddf--datapoints--population_aged_55plus_years_total_number--by--geo--time.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "geo"
+                    },
+                    {
+                        "name": "time"
+                    },
+                    {
+                        "name": "population_aged_55plus_years_total_number"
                     }
                 ],
                 "primaryKey": [
@@ -3090,6 +3174,86 @@
                 "value": "population_aged_40_59_years_total_number",
                 "resources": [
                     "ddf--datapoints--population_aged_40_59_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_55plus_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_55plus_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_55plus_years_both_sexes_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_55plus_years_both_sexes_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_55plus_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_55plus_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_55plus_years_female_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_55plus_years_female_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_55plus_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_55plus_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_55plus_years_male_percent",
+                "resources": [
+                    "ddf--datapoints--population_aged_55plus_years_male_percent--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "country",
+                    "time"
+                ],
+                "value": "population_aged_55plus_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_55plus_years_total_number--by--geo--time"
+                ]
+            },
+            {
+                "primaryKey": [
+                    "geo",
+                    "time"
+                ],
+                "value": "population_aged_55plus_years_total_number",
+                "resources": [
+                    "ddf--datapoints--population_aged_55plus_years_total_number--by--geo--time"
                 ]
             },
             {
