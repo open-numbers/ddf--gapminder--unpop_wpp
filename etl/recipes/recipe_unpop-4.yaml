@@ -25,9 +25,9 @@ ingredients:
 
     - id: unpop-datapoints-4-total
       dataset: *d1
-      key: country, time, freq
+      key: country, time
       value:
-          - sex_ratio_total
+          - sex_ratio
 
 cooking:
     datapoints:
@@ -77,19 +77,17 @@ cooking:
                   value: geo
           result: unpop-datapoints-4-total-aligned
 
-        - procedure: flatten
+        - procedure: translate_header
           ingredients:
             - unpop-datapoints-4-total-aligned
           options:
-            flatten_dimensions:
-              - freq
             dictionary:
-              sex_ratio_total: sex_ratio_total_years
-          result: unpop-datapoints-4-total-flattened
+              sex_ratio: sex_ratio_total_years
+          result: unpop-datapoints-4-total-aligned-translated
 
         - procedure: merge
           ingredients:
-            - unpop-datapoints-4-total-flattened
+            - unpop-datapoints-4-total-aligned-translated
             - unpop-datapoints-4-flatten
           result: unpop-datapoints-4-all
 

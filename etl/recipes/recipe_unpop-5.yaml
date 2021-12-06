@@ -16,40 +16,19 @@ ingredients:
       dataset: *d1
       key: "country"
       value: "*"
-    - id: unpop-datapoints-5-freq
-      dataset: *d1
-      key: country, time, freq
-      value:
-          - median_age
 
-    - id: unpop-datapoints-5-nofreq
+    - id: unpop-datapoints-5
       dataset: *d1
       key: country, time
       value:
-          - population_density
-          - total_dependency_ratio_1564
+        - median_age
+        - population_density
+        - total_dependency_ratio_1564
 
 
 
 cooking:
     datapoints:
-        # flatten the freq dimension and merge 2 datapoints ingredient
-        - procedure: flatten
-          ingredients:
-            - unpop-datapoints-5-freq
-          options:
-            flatten_dimensions:
-              - freq
-            dictionary:
-              median_age: median_age
-          result: unpop-datapoints-5-freq-flatten
-
-        - procedure: merge
-          ingredients:
-            - unpop-datapoints-5-freq-flatten
-            - unpop-datapoints-5-nofreq
-          result: unpop-datapoints-5
-
         - procedure: translate_column
           ingredients:
               - unpop-countries
