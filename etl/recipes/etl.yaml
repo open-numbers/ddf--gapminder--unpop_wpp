@@ -10,10 +10,8 @@ config:
 include:
     - recipe_gw_common.yaml
     - recipe_unpop-1.yaml
-    - recipe_unpop-2.yaml
     - recipe_unpop-3.yaml
     - recipe_unpop-4.yaml
-    - recipe_unpop-5.yaml
     - recipe_unpop_6_population_global.yaml
 
 
@@ -22,17 +20,15 @@ cooking:
         - procedure: merge
           ingredients:
               - unpop-datapoints-1-final
-              - unpop-datapoints-2-final
               - unpop-datapoints-3-final
               - unpop-datapoints-4-final
-              - unpop-datapoints-5-final
           result: unpop-datapoints-countries-final-0
         - procedure: translate_header
           ingredients:
               - unpop-datapoints-countries-final-0
           options:
               dictionary:
-                  country: geo
+                  country_area: geo
           result: unpop-datapoints-countries-final
     concepts:
         - procedure: extract_concepts

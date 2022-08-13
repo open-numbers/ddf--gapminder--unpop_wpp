@@ -13,15 +13,21 @@ include:
 ingredients:
     - id: unpop-countries
       dataset: *d1
-      key: "country"
+      key: "country_area"
       value: "*"
 
     - id: unpop-datapoints-1
       dataset: *d1
-      key: country, time
+      key: country_area, time
       value:
           - cdr
-          - growthrate
+          - popgrowthrate
+          - lexmale
+          - lexfemale
+          - popsexratio
+          - medianagepop
+          - population_density
+          - total_dependency_ratio1564
 
 cooking:
     datapoints:
@@ -42,10 +48,10 @@ cooking:
           ingredients:
               - unpop-datapoints-1
           options:
-              column: country
+              column: country_area
               dictionary:
                   base: unpop-countries-aligned
-                  key: country
+                  key: country_area
                   value: geo
           result: unpop-datapoints-1-country-year-aligned
 
@@ -54,7 +60,14 @@ cooking:
               - unpop-datapoints-1-country-year-aligned
           options:
               dictionary:
+                  # country_area: geo
                   cdr: crude_death_rate_deaths_per_1000_population
-                  growthrate: population_growth_annual_percent_with_projections
+                  popgrowthrate: population_growth_annual_percent_with_projections
+                  lexmale: life_expectancy_male
+                  lexfemale: life_expectancy_female
+                  popsexratio: sex_ratio_all_age_groups
+                  medianagepop: median_age_years
+                  total_dependency_ratio1564: children_and_elderly_per_100_adults
+                  population_density: population_density_per_square_km
               # debug: true
           result: unpop-datapoints-1-final

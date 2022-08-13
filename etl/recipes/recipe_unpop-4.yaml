@@ -14,20 +14,14 @@ include:
 ingredients:
     - id: unpop-countries
       dataset: *d1
-      key: "country"
+      key: "country_area"
       value: "*"
 
     - id: unpop-datapoints-4
       dataset: *d1
-      key: agebroad, country, time
+      key: age_group_broad, country_area, time
       value:
-          - sex_ratio
-
-    - id: unpop-datapoints-4-total
-      dataset: *d1
-      key: country, time
-      value:
-          - sex_ratio
+          - popsexratio
 
 cooking:
     datapoints:
@@ -48,10 +42,10 @@ cooking:
           ingredients:
               - unpop-datapoints-4
           options:
-              column: country
+              column: country_area
               dictionary:
                   base: unpop-countries-aligned
-                  key: country
+                  key: country_area
                   value: geo
           result: unpop-datapoints-4-aligned
 
@@ -60,45 +54,17 @@ cooking:
               - unpop-datapoints-4-aligned
           options:
               flatten_dimensions:
-                  - agebroad
+                  - age_group_broad
               dictionary:
-                  sex_ratio: "sex_ratio_{agebroad}_years"
+                  popsexratio: "sex_ratio_{age_group_broad}_years"
           result: unpop-datapoints-4-flatten
 
-        # process sex ratio for all age
-        - procedure: translate_column
-          ingredients:
-              - unpop-datapoints-4-total
-          options:
-              column: country
-              dictionary:
-                  base: unpop-countries-aligned
-                  key: country
-                  value: geo
-          result: unpop-datapoints-4-total-aligned
-
+        # TODO: maybe move indicator name renaming to SG's recipes.
         - procedure: translate_header
           ingredients:
-            - unpop-datapoints-4-total-aligned
-          options:
-            dictionary:
-              sex_ratio: sex_ratio_total_years
-          result: unpop-datapoints-4-total-aligned-translated
-
-        - procedure: merge
-          ingredients:
-            - unpop-datapoints-4-total-aligned-translated
-            - unpop-datapoints-4-flatten
-          result: unpop-datapoints-4-all
-
-        # rename geo and 2 indicator name to match names in SG
-        # TODO: move indicator name renaming to SG's recipes.
-        - procedure: translate_header
-          ingredients:
-              - unpop-datapoints-4-all
+              - unpop-datapoints-4-flatten
           options:
               dictionary:
-                  sex_ratio_total_years: sex_ratio_all_age_groups
                   sex_ratio_50plus_years: sex_ratio_above_50_years
           result: unpop-datapoints-4-final-0
 
@@ -111,5 +77,4 @@ cooking:
                   - sex_ratio_15_24_years
                   - sex_ratio_15_49_years
                   - sex_ratio_above_50_years
-                  - sex_ratio_all_age_groups
           result: unpop-datapoints-4-final
