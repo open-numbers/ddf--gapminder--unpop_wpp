@@ -14,30 +14,30 @@ include:
 ingredients:
     - id: unpop-countries
       dataset: *d1
-      key: "country"
+      key: "country_area"
       value: "*"
 
     - id: unpop-datapoints-3-1
       dataset: *d1
-      key: country, gender, time
+      key: country_area, sex, time
       value:
           - population
 
     - id: unpop-datapoints-3-2
       dataset: *d1
-      key: country, age5yearinterval, time
+      key: country_area, age_group_5year, time
       value:
           - population
 
     - id: unpop-datapoints-3-3
       dataset: *d1
-      key: country, time
+      key: country_area, time
       value:
           - population
 
     - id: unpop-datapoints-3-4
       dataset: *d1
-      key: country, age5yearinterval, gender, time
+      key: country_area, age_group_5year, sex, time
       value:
           - population
 
@@ -69,10 +69,10 @@ cooking:
           ingredients:
               - unpop-datapoints-3-1-1
           options:
-              column: country
+              column: country_area
               dictionary:
                   base: unpop-countries-aligned
-                  key: country
+                  key: country_area
                   value: geo
           result: unpop-datapoints-3-1-country-year-aligned
 
@@ -80,20 +80,20 @@ cooking:
           ingredients:
             - unpop-datapoints-3-1-country-year-aligned
           options:
-            column: gender
+            column: sex
             dictionary:
               "1": male
               "2": female
-          result: unpop-datapoints-3-1-country-year-aligned-gender-translated
+          result: unpop-datapoints-3-1-country-year-aligned-sex-translated
 
         - procedure: flatten
           ingredients:
-              - unpop-datapoints-3-1-country-year-aligned-gender-translated
+              - unpop-datapoints-3-1-country-year-aligned-sex-translated
           options:
               flatten_dimensions:
-                  - gender
+                  - sex
               dictionary:
-                  population: "{gender}_population_with_projections"
+                  population: "{sex}_population_with_projections"
           result: unpop-datapoints-3-1-final
 
         # population for age groups
@@ -112,22 +112,22 @@ cooking:
           ingredients:
               - unpop-datapoints-3-2-1
           options:
-              column: country
+              column: country_area
               dictionary:
                   base: unpop-countries-aligned
-                  key: country
+                  key: country_area
                   value: geo
           result: unpop-datapoints-3-2-country-year-aligned
 
-        # pivot age5yearinterval to separate indicators
+        # pivot age_group_5year to separate indicators
         - procedure: flatten
           ingredients:
               - unpop-datapoints-3-2-country-year-aligned
           options:
               flatten_dimensions:
-                  - age5yearinterval
+                  - age_group_5year
               dictionary:
-                  population: "population_aged_{age5yearinterval}_years_total_number"
+                  population: "population_aged_{age_group_5year}_years_total_number"
           result: unpop-datapoints-3-2-final-1
 
         # 0 - 14 total
@@ -136,7 +136,7 @@ cooking:
               - unpop-datapoints-3-2-country-year-aligned
           options:
               row:
-                  age5yearinterval: ["0_4", "5_9", "10_14"]
+                  age_group_5year: ["0_4", "5_9", "10_14"]
           result: unpop-datapoints-3-2-filtered-0_14
 
         - procedure: translate_header
@@ -153,7 +153,7 @@ cooking:
               - unpop-datapoints-3-2-country-year-aligned
           options:
               row:
-                  age5yearinterval: ["20_24", "25_29", "30_34", "35_39"]
+                  age_group_5year: ["20_24", "25_29", "30_34", "35_39"]
           result: unpop-datapoints-3-2-filtered-1
 
         - procedure: translate_header
@@ -170,7 +170,7 @@ cooking:
               - unpop-datapoints-3-2-country-year-aligned
           options:
               row:
-                  age5yearinterval: ["40_44", "45_49", "50_54", "55_59"]
+                  age_group_5year: ["40_44", "45_49", "50_54", "55_59"]
           result: unpop-datapoints-3-2-filtered-2
 
         - procedure: translate_header
@@ -187,8 +187,8 @@ cooking:
               - unpop-datapoints-3-2-country-year-aligned
           options:
               row:
-                  age5yearinterval: ['60_64', '65_69', '70_74', '75_79',
-                                     '80plus', '80_84', '85_89', '90_94',
+                  age_group_5year: ['60_64', '65_69', '70_74', '75_79',
+                                     '80_84', '85_89', '90_94',
                                      '95_99', '100plus']
           result: unpop-datapoints-3-2-filtered-3
 
@@ -206,8 +206,8 @@ cooking:
               - unpop-datapoints-3-2-country-year-aligned
           options:
               row:
-                  age5yearinterval: ['65_69', '70_74', '75_79',
-                                     '80plus', '80_84', '85_89', '90_94',
+                  age_group_5year: ['65_69', '70_74', '75_79',
+                                     '80_84', '85_89', '90_94',
                                      '95_99', '100plus']
           result: unpop-datapoints-3-2-filtered-65plus
 
@@ -225,8 +225,8 @@ cooking:
               - unpop-datapoints-3-2-country-year-aligned
           options:
               row:
-                  age5yearinterval: ['70_74', '75_79',
-                                     '80plus', '80_84', '85_89', '90_94',
+                  age_group_5year: ['70_74', '75_79',
+                                     '80_84', '85_89', '90_94',
                                      '95_99', '100plus']
           result: unpop-datapoints-3-2-filtered-70plus
 
@@ -253,7 +253,7 @@ cooking:
               - unpop-datapoints-3-2-translated-merged
           options:
               groupby:
-                  - country
+                  - country_area
                   - time
               aggregate:
                   population_aged_0_14_years_total_number: sum
@@ -283,10 +283,10 @@ cooking:
           ingredients:
               - unpop-datapoints-3-3-1
           options:
-              column: country
+              column: country_area
               dictionary:
                   base: unpop-countries-aligned
-                  key: country
+                  key: country_area
                   value: geo
           result: unpop-datapoints-3-3-country-year-aligned
 
@@ -310,10 +310,10 @@ cooking:
           ingredients:
               - unpop-datapoints-3-4-1
           options:
-              column: country
+              column: country_area
               dictionary:
                   base: unpop-countries-aligned
-                  key: country
+                  key: country_area
                   value: geo
           result: unpop-datapoints-3-4-country-year-aligned
 
@@ -321,22 +321,22 @@ cooking:
           ingredients:
             - unpop-datapoints-3-4-country-year-aligned
           options:
-            column: gender
+            column: sex
             dictionary:
               "1": male
               "2": female
-          result: unpop-datapoints-3-4-country-year-aligned-gender-translated
+          result: unpop-datapoints-3-4-country-year-aligned-sex-translated
 
 
         - procedure: flatten
           ingredients:
-              - unpop-datapoints-3-4-country-year-aligned-gender-translated
+              - unpop-datapoints-3-4-country-year-aligned-sex-translated
           options:
               flatten_dimensions:
-                  - gender
-                  - age5yearinterval
+                  - sex
+                  - age_group_5year
               dictionary:
-                  population: "pop_{age5yearinterval}_{gender}"
+                  population: "pop_{age_group_5year}_{sex}"
           result: unpop-datapoints-3-4-g1
 
         # 0 - 14 male
@@ -347,9 +347,9 @@ cooking:
           options:
               row:
                   $and:
-                    - gender:
+                    - sex:
                         - "1"
-                    - age5yearinterval: ["0_4", "5_9", "10_14"]
+                    - age_group_5year: ["0_4", "5_9", "10_14"]
 
         - procedure: translate_header
           ingredients:
@@ -368,9 +368,9 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "1"
-                      - age5yearinterval: ["20_24", "25_29", "30_34", "35_39"]
+                      - age_group_5year: ["20_24", "25_29", "30_34", "35_39"]
 
         - procedure: translate_header
           ingredients:
@@ -388,9 +388,9 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "1"
-                      - age5yearinterval: ["40_44", "45_49", "50_54", "55_59"]
+                      - age_group_5year: ["40_44", "45_49", "50_54", "55_59"]
 
         - procedure: translate_header
           ingredients:
@@ -408,10 +408,10 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "1"
-                      - age5yearinterval: ['60_64', '65_69', '70_74', '75_79',
-                                           '80plus', '80_84', '85_89', '90_94',
+                      - age_group_5year: ['60_64', '65_69', '70_74', '75_79',
+                                           '80_84', '85_89', '90_94',
                                            '95_99', '100plus']
 
         - procedure: translate_header
@@ -430,10 +430,10 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "1"
-                      - age5yearinterval: ['65_69', '70_74', '75_79',
-                                           '80plus', '80_84', '85_89', '90_94',
+                      - age_group_5year: ['65_69', '70_74', '75_79',
+                                           '80_84', '85_89', '90_94',
                                            '95_99', '100plus']
 
         - procedure: translate_header
@@ -452,10 +452,10 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "1"
-                      - age5yearinterval: ['70_74', '75_79',
-                                           '80plus', '80_84', '85_89', '90_94',
+                      - age_group_5year: ['70_74', '75_79',
+                                           '80_84', '85_89', '90_94',
                                            '95_99', '100plus']
 
         - procedure: translate_header
@@ -474,9 +474,9 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "2"
-                      - age5yearinterval: ["0_4", "5_9", "10_14"]
+                      - age_group_5year: ["0_4", "5_9", "10_14"]
 
         - procedure: translate_header
           ingredients:
@@ -494,9 +494,9 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "2"
-                      - age5yearinterval: ["20_24", "25_29", "30_34", "35_39"]
+                      - age_group_5year: ["20_24", "25_29", "30_34", "35_39"]
 
         - procedure: translate_header
           ingredients:
@@ -514,9 +514,9 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "2"
-                      - age5yearinterval: ["40_44", "45_49", "50_54", "55_59"]
+                      - age_group_5year: ["40_44", "45_49", "50_54", "55_59"]
 
         - procedure: translate_header
           ingredients:
@@ -534,10 +534,10 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "2"
-                      - age5yearinterval: ['60_64', '65_69', '70_74', '75_79',
-                                           '80plus', '80_84', '85_89', '90_94',
+                      - age_group_5year: ['60_64', '65_69', '70_74', '75_79',
+                                           '80_84', '85_89', '90_94',
                                            '95_99', '100plus']
 
         - procedure: translate_header
@@ -556,10 +556,10 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "2"
-                      - age5yearinterval: ['65_69', '70_74', '75_79',
-                                           '80plus', '80_84', '85_89', '90_94',
+                      - age_group_5year: ['65_69', '70_74', '75_79',
+                                           '80_84', '85_89', '90_94',
                                            '95_99', '100plus']
 
         - procedure: translate_header
@@ -578,10 +578,10 @@ cooking:
           options:
               row:
                   $and:
-                      - gender:
+                      - sex:
                           - "2"
-                      - age5yearinterval: ['70_74', '75_79',
-                                           '80plus', '80_84', '85_89', '90_94',
+                      - age_group_5year: ['70_74', '75_79',
+                                           '80_84', '85_89', '90_94',
                                            '95_99', '100plus']
 
         - procedure: translate_header
@@ -613,7 +613,7 @@ cooking:
               - unpop-datapoints-3-4-g2
           options:
               groupby:
-                  - country
+                  - country_area
                   - time
               aggregate:
                   pop_0_14_male: sum
