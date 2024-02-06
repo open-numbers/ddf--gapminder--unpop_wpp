@@ -46,12 +46,16 @@ indicators = [
     "population_aged_70plus_years_total_number"
 ]
 
-def read_datapoint(indicator):
-    return pd.read_csv(osp.join('../../', f'ddf--datapoints--{indicator}--by--geo--time.csv'))
+def read_datapoint(indicator, geo):
+    return pd.read_csv(osp.join('../../', f'ddf--datapoints--{indicator}--by--{geo}--time.csv'))
 
-dfs = [read_datapoint(i).set_index(['geo', 'time']) for i in indicators]
+dfs_geo = [read_datapoint(i, 'geo').set_index(['geo', 'time']) for i in indicators]
 
-df_all = pd.concat(dfs, axis=1)
+df_all_geo = pd.concat(dfs_geo, axis=1)
+
+dfs_global = [read_datapoint(i, 'global').set_index(['global', 'time']) for i in indicators]
+
+df_all_global = pd.concat(dfs_global, axis=1)
 
 concepts = pd.read_csv('../../../ddf--gapminder--systema_globalis/ddf--concepts.csv').set_index('concept')
 
@@ -63,6 +67,10 @@ concept_map = concepts_all['name'].to_dict()
 
 concept_map
 
-df_all.columns = df_all.columns.map(concept_map)
+df_all_geo.columns = df_all_geo.columns.map(concept_map)
 
-df_all.to_csv('./fasttrack_data.csv')
+df_all_geo.to_csv('./fasttrack_data_geo.csv')
+
+df_all_global.columns = df_all_global.columns.map(concept_map)
+
+df_all_global.to_csv('./fasttrack_data_global.csv')
