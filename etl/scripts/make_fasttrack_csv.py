@@ -57,6 +57,8 @@ dfs_global = [read_datapoint(i, 'global').set_index(['global', 'time']) for i in
 
 df_all_global = pd.concat(dfs_global, axis=1)
 
+df_all_global.index.names = ['geo', 'time']
+
 concepts = pd.read_csv('../../../ddf--gapminder--systema_globalis/ddf--concepts.csv').set_index('concept')
 
 concepts_all = concepts.loc[indicators]
