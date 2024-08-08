@@ -10,9 +10,9 @@
     "base": [
         "open-numbers/ddf--unpop--world_population_prospects"
     ],
+    "created": "2024-08-08T07:49:21.905679+00:00",
     "id": "unpop_sg_dataset",
     "translations": [],
-    "created": "2024-07-16T03:57:30.315398+00:00",
     "resources": [
         {
             "name": "ddf--concepts",
@@ -74,7 +74,9 @@
                         "name": "unit"
                     }
                 ],
-                "primaryKey": "concept"
+                "primaryKey": [
+                    "concept"
+                ]
             }
         },
         {
@@ -2168,7 +2170,9 @@
                         "name": "world_6region"
                     }
                 ],
-                "primaryKey": "country"
+                "primaryKey": [
+                    "country"
+                ]
             }
         },
         {
@@ -2189,7 +2193,9 @@
                         "name": "rank"
                     }
                 ],
-                "primaryKey": "g77_and_oecd_countries"
+                "primaryKey": [
+                    "g77_and_oecd_countries"
+                ]
             }
         },
         {
@@ -2219,7 +2225,9 @@
                         "name": "unicode_region_subtag"
                     }
                 ],
-                "primaryKey": "global"
+                "primaryKey": [
+                    "global"
+                ]
             }
         },
         {
@@ -2240,7 +2248,9 @@
                         "name": "rank"
                     }
                 ],
-                "primaryKey": "income_3groups"
+                "primaryKey": [
+                    "income_3groups"
+                ]
             }
         },
         {
@@ -2261,7 +2271,9 @@
                         "name": "rank"
                     }
                 ],
-                "primaryKey": "income_groups"
+                "primaryKey": [
+                    "income_groups"
+                ]
             }
         },
         {
@@ -2282,7 +2294,9 @@
                         "name": "rank"
                     }
                 ],
-                "primaryKey": "landlocked"
+                "primaryKey": [
+                    "landlocked"
+                ]
             }
         },
         {
@@ -2303,7 +2317,9 @@
                         "name": "rank"
                     }
                 ],
-                "primaryKey": "main_religion_2008"
+                "primaryKey": [
+                    "main_religion_2008"
+                ]
             }
         },
         {
@@ -2321,7 +2337,9 @@
                         "name": "name"
                     }
                 ],
-                "primaryKey": "un_sdg_ldc"
+                "primaryKey": [
+                    "un_sdg_ldc"
+                ]
             }
         },
         {
@@ -2342,7 +2360,9 @@
                         "name": "name"
                     }
                 ],
-                "primaryKey": "un_sdg_region"
+                "primaryKey": [
+                    "un_sdg_region"
+                ]
             }
         },
         {
@@ -2360,7 +2380,9 @@
                         "name": "name"
                     }
                 ],
-                "primaryKey": "unhcr_region"
+                "primaryKey": [
+                    "unhcr_region"
+                ]
             }
         },
         {
@@ -2378,7 +2400,9 @@
                         "name": "name"
                     }
                 ],
-                "primaryKey": "unicef_region"
+                "primaryKey": [
+                    "unicef_region"
+                ]
             }
         },
         {
@@ -2396,7 +2420,9 @@
                         "name": "name"
                     }
                 ],
-                "primaryKey": "west_and_rest"
+                "primaryKey": [
+                    "west_and_rest"
+                ]
             }
         },
         {
@@ -2438,7 +2464,9 @@
                         "name": "shape_lores_svg"
                     }
                 ],
-                "primaryKey": "world_4region"
+                "primaryKey": [
+                    "world_4region"
+                ]
             }
         },
         {
@@ -2468,7 +2496,9 @@
                         "name": "shape_lores_svg"
                     }
                 ],
-                "primaryKey": "world_6region"
+                "primaryKey": [
+                    "world_6region"
+                ]
             }
         }
     ],
